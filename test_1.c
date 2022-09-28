@@ -43,7 +43,7 @@ int main(int argc, char const *argv[])
 	selectHash(pmhtroot, sql);
 	// sql = "UPDATE gps SET Lng=1511 WHERE Lng=1501";
 	// updateHash(pmhtroot, sql);
-	updateTime(pmhtroot, 5);
+	updateTime(pmhtroot, 10);
 	free_mht_postorder(&pmhtroot);
 }
 

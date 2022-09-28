@@ -1,5 +1,5 @@
 CC_FLAGS = -g
-CC = gcc $(CC_FLAGS)
+CC = arm-linux-gnueabihf-gcc $(CC_FLAGS)
 OBJ = defs.o mhtdefs.o sha256.o mht.o dataelem.o sqlite3.o utils.o dbqueue.o
 LIBS = -lm -lpthread -ldl
 
