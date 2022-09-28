@@ -40,10 +40,15 @@ int main(int argc, char const *argv[])
 	// print_mht_preorder(pmhtroot);
 	char *sql;
 	sql = "select * from gps limit 100";
-	// selectHash(pmhtroot, sql);
+	for(int i=0;i<20;i++) selectHash(pmhtroot, sql);
 	// sql = "UPDATE gps SET Lng=1511 WHERE Lng=1501";
 	// updateHash(pmhtroot, sql);
-	updateTime(pmhtroot, 100);
+	for(int i=5;i<101;i+=5){
+		printf("%d:\n", i);
+		for(int j=0;i<20;j++){
+			updateTime(pmhtroot, i);
+		}
+	}
 	free_mht_postorder(&pmhtroot);
 }
 
@@ -145,7 +150,7 @@ void updateHash(PMHTNode pmhtroot, char *sql){
 				printf("未找到指定页码");
 			}
 			ret = compare_two_hashes(dataHash, mhash);
-			printf("pgno: %d %d\n", tempPgno, ret);
+			// printf("pgno: %d %d\n", tempPgno, ret);
 		}
 	}
 	gettimeofday(&endTime,NULL);
