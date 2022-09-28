@@ -79,12 +79,12 @@ void selectHash(PMHTNode pmhtroot, char *sql){
 	unsigned int *selectAll;
 	int selectAllNum = getSelectPgno(&selectAll);
 	// for(int i=0;i<selectAllNum;i++) printf("%d ", selectAll[i]);
-	printf("\nselectAllPgno: %d\n", selectAllNum);
+	// printf("\nselectAllPgno: %d\n", selectAllNum);
 
 	unsigned int selectDiff[selectAllNum];
 	int selectDiffNum = diffPgno(&selectAll, selectDiff, selectAllNum);
 	// for(int i=0;i<selectDiffNum;i++) printf("%d ", selectDiff[i]);
-	printf("\nselectDiffPgno: %d\n", selectDiffNum);
+	// printf("\nselectDiffPgno: %d\n", selectDiffNum);
 
 	unsigned int  pgnoNums;
 	unsigned char dataHash[SHA256_BLOCK_SIZE];
@@ -100,13 +100,13 @@ void selectHash(PMHTNode pmhtroot, char *sql){
 				printf("未找到指定页码");
 			}
 			ret = compare_two_hashes(dataHash, mhash);
-			printf("pgno: %d %d\n", tempPgno, ret);
+			// printf("pgno: %d %d\n", tempPgno, ret);
 		}
 	}
 
 	gettimeofday(&endTime,NULL);
 	diff_t = 1000000*(endTime.tv_sec-startTime.tv_sec)+endTime.tv_usec-startTime.tv_usec;
-	printf("\ntime: %lf\n", diff_t/1000000);
+	printf("%lf\n", diff_t/1000000);
 	sqlite3_free_table(result);
 	sqlite3_close(db);
 }
@@ -175,7 +175,7 @@ void updateTime(PMHTNode pmhtroot, int n){
 	}
 	gettimeofday(&endTime,NULL);
 	diff_t = 1000000*(endTime.tv_sec-startTime.tv_sec)+endTime.tv_usec-startTime.tv_usec;
-	printf("\ntime: %lf\n", diff_t/1000000);
+	printf("%lf\n", diff_t/1000000);
 }
 
 
