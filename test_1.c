@@ -40,10 +40,10 @@ int main(int argc, char const *argv[])
 	// print_mht_preorder(pmhtroot);
 	char *sql;
 	sql = "select * from gps limit 100";
-	selectHash(pmhtroot, sql);
+	// selectHash(pmhtroot, sql);
 	// sql = "UPDATE gps SET Lng=1511 WHERE Lng=1501";
 	// updateHash(pmhtroot, sql);
-	updateTime(pmhtroot, 50);
+	updateTime(pmhtroot, 100);
 	free_mht_postorder(&pmhtroot);
 }
 
