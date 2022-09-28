@@ -45,7 +45,7 @@ int main(int argc, char const *argv[])
 	// updateHash(pmhtroot, sql);
 	for(int i=5;i<101;i+=5){
 		printf("%d:\n", i);
-		for(int j=0;i<20;j++){
+		for(int j=0;j<20;j++){
 			updateTime(pmhtroot, i);
 		}
 	}
