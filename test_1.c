@@ -53,7 +53,7 @@ int main(int argc, char const *argv[])
 }
 
 void selectHash(PMHTNode pmhtroot, char *sql){
-	printf("SQL: %s\n", sql);
+	// printf("SQL: %s\n", sql);
 	struct timeval startTime, endTime;
 	double diff_t;
 	gettimeofday(&startTime,NULL);
@@ -82,7 +82,10 @@ void selectHash(PMHTNode pmhtroot, char *sql){
 	// printf("\nselectAllPgno: %d\n", selectAllNum);
 
 	unsigned int selectDiff[selectAllNum];
-	int selectDiffNum = diffPgno(&selectAll, selectDiff, selectAllNum);
+	// int selectDiffNum = diffPgno(&selectAll, selectDiff, selectAllNum);
+
+	memcpy(selectDiff, selectAll, selectAllNum);
+	int selectDiffNum = selectAllNum;
 	// for(int i=0;i<selectDiffNum;i++) printf("%d ", selectDiff[i]);
 	// printf("\nselectDiffPgno: %d\n", selectDiffNum);
 
