@@ -82,10 +82,10 @@ void selectHash(PMHTNode pmhtroot, char *sql){
 	// printf("\nselectAllPgno: %d\n", selectAllNum);
 
 	unsigned int selectDiff[selectAllNum];
-	// int selectDiffNum = diffPgno(&selectAll, selectDiff, selectAllNum);
+	int selectDiffNum = diffPgno(&selectAll, selectDiff, selectAllNum);
 
-	memcpy(selectDiff, selectAll, selectAllNum);
-	int selectDiffNum = selectAllNum;
+	// memcpy(selectDiff, selectAll, selectAllNum);
+	// int selectDiffNum = selectAllNum;
 	// for(int i=0;i<selectDiffNum;i++) printf("%d ", selectDiff[i]);
 	// printf("\nselectDiffPgno: %d\n", selectDiffNum);
 
@@ -93,8 +93,8 @@ void selectHash(PMHTNode pmhtroot, char *sql){
 	unsigned char dataHash[SHA256_BLOCK_SIZE];
 	char mhash[SHA256_BLOCK_SIZE];
 
-	for(int i = 0; i< selectDiffNum; i++){
-		int tempPgno = selectDiff[i];
+	for(int i = 0; i< selectAllNum; i++){
+		int tempPgno = selectAll[i];
 		memset(dataHash, 0, sizeof(unsigned char) * SHA256_BLOCK_SIZE);
 
 		if(getInfo1(db, dbName, &pgnoNums, dataHash,tempPgno, tempPgno, 1)){
