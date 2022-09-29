@@ -43,12 +43,12 @@ int main(int argc, char const *argv[])
 	for(int i=0;i<20;i++) selectHash(pmhtroot, sql);
 	// sql = "UPDATE gps SET Lng=1511 WHERE Lng=1501";
 	// updateHash(pmhtroot, sql);
-	for(int i=5;i<101;i+=5){
-		printf("%d:\n", i);
-		for(int j=0;j<20;j++){
-			updateTime(pmhtroot, i);
-		}
-	}
+	// for(int i=5;i<101;i+=5){
+	// 	printf("%d:\n", i);
+	// 	for(int j=0;j<20;j++){
+	// 		updateTime(pmhtroot, i);
+	// 	}
+	// }
 	free_mht_postorder(&pmhtroot);
 }
 
@@ -92,6 +92,8 @@ void selectHash(PMHTNode pmhtroot, char *sql){
 	unsigned int  pgnoNums;
 	unsigned char dataHash[SHA256_BLOCK_SIZE];
 	char mhash[SHA256_BLOCK_SIZE];
+	printf("\nselectAllPgno: %d\n", selectAllNum);
+
 
 	for(int i = 0; i< selectAllNum; i++){
 		int tempPgno = selectAll[i];
